@@ -1,5 +1,5 @@
 const express = require('express');
-const { v4: uuidv4 } = require('uuid')
+const { v4: uuidv4 } = require('uuid');
 const app = express();
 app.use(express.json());
 const obersvacoesPorLembreteId = {};
@@ -23,6 +23,11 @@ app.post('/lembretes/:id/observacoes', (req, res) => {
 
 app.get('/lembretes/:id/observacoes', (req, res) => {
     res.send(obersvacoesPorLembreteId[req.params.id] || []);
+});
+
+app.post('/eventos',(req, res) =>{
+    console.log(req.body);
+    res.send({ msg: "ok"});
 });
 
 app.listen(5000,() =>  {
